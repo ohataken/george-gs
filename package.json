@@ -1,0 +1,19 @@
+{
+  "name": "george-gs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ohataken/george-gs.git"
+  },
+  "author": "ohataken",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ohataken/george-gs/issues"
+  },
+  "homepage": "https://github.com/ohataken/george-gs#readme"
+}
