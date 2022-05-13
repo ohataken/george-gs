@@ -9,3 +9,9 @@ function openSpreadsheetByUrl(url, callback) {
   callback(ss);
   return ss;
 }
+
+function openSheetByName(ss, name, callback) {
+  const sheet = ss.getSheetByName(name);
+  callback(sheet);
+  return sheet;
+}
