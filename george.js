@@ -3,3 +3,9 @@ function openSpreadsheetById(id, callback) {
   callback(ss);
   return ss;
 }
+
+function openSpreadsheetByUrl(url, callback) {
+  const ss = SpreadsheetApp.openByUrl(url);
+  callback(ss);
+  return ss;
+}
