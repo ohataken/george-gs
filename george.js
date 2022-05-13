@@ -15,3 +15,9 @@ function openSheetByName(ss, name, callback) {
   callback(sheet);
   return sheet;
 }
+
+function pushRow(csv, callback) {
+  const row = [];
+  callback(row);
+  csv.push(row);
+}
