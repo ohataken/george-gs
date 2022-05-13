@@ -21,3 +21,12 @@ function pushRow(csv, callback) {
   callback(row);
   csv.push(row);
 }
+
+function openCsv(sheet) {
+  const args = Array.from(arguments);
+  const callback = args.slice(-1)[0];
+  const range = sheet.getRange.apply(sheet, args.slice(1, -1));
+  const csv = range.getValues();
+  callback(csv);
+  return csv;
+}
