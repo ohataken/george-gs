@@ -30,3 +30,13 @@ function openCsv(sheet) {
   callback(csv);
   return csv;
 }
+
+function changeCsv(sheet) {
+  const args = Array.from(arguments);
+  const callback = args.slice(-1)[0];
+  const range = sheet.getRange.apply(sheet, args.slice(1, -1));
+  const csv = range.getValues();
+  callback(csv, range);
+  sheet.getRange(args[1], args[2], csv.length || 0, csv[0].length || 0).setValues(csv);
+  return csv;
+}
