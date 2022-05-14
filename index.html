@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>george-gs</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+  <body>
+  <section class="section">
+    <div class="container">
+      <h1 class="title">
+        george-gs
+      </h1>
+      <p class="subtitle">
+        Google Apps Script のためのユーティリティ関数とパターン.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title" id="pattern-1">
+        <a class="has-text-black" href="pattern-1">Pattern #1</a>
+      </h1>
+      <p class="subtitle">
+        スプレッドシートの特定の範囲のデータを取得する
+      </p>
+      <pre>
+function myFunction() {
+  openSpreadsheetById("xxxxxxxx", (ss) => {
+    openSheetByName(ss, "sheet 1", (sheet) => {
+      openCsv(sheet, 1, 1, 3, 3, (csv) => {
+        csv.forEach((row) => {
+          console.log(row);
+        });
+      });
+    });
+  });
+}</pre>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title" id="pattern-2">
+        <a class="has-text-black" href="pattern-2">Pattern #2</a>
+      </h1>
+      <p class="subtitle">
+        スプレッドシートの特定の範囲のデータを書き換えるパターン
+      </p>
+      <pre>function myFunction() {
+  openSpreadsheetById("xxxxxxxx", (ss) => {
+    openSheetByName(ss, "sheet 1", (sheet) => {
+      changeCsv(sheet, 1, 1, 4, 4, () => {
+        return [
+          ["first name", "last name"],
+          ["Maxine", "Ramsey"],
+          ["Cecil", "Soto"],
+          ["Tommie", "Bartlett"],
+        ];
+      });
+    });
+  });
+}</pre>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title" id="pattern-3">
+        <a class="has-text-black" href="pattern-3">Pattern #3</a>
+      </h1>
+      <p class="subtitle">
+        スプレッドシートの先頭から最終行までの範囲のデータを取得する
+      </p>
+      <pre>function myFunction() {
+  openSpreadsheetById("xxxxxxxx", (ss) => {
+    openSheetByName(ss, "sheet 1", (sheet) => {
+      openCsv(sheet, 1, 1, sheet.getLastRow(), sheet.getLastCol(), (csv) => {
+        csv.forEach((row) => {
+          console.log(row);
+        });
+      });
+    });
+  });
+}</pre>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title" id="pattern-4">
+        <a class="has-text-black" href="pattern-4">Pattern #4</a>
+      </h1>
+      <p class="subtitle">
+        スプレッドシートの先頭から最終行までの範囲のデータを書き換える
+      </p>
+      <pre>
+function myFunction() {
+  openSpreadsheetById("xxxxxxxx", (ss) => {
+    openSheetByName(ss, "sheet 1", (sheet) => {
+      changeCsv(sheet, 1, 1, sheet.getLastRow(), sheet.getLastColumn(), () => {
+        return [
+          ["first name", "last name"],
+          ["Maxine", "Ramsey"],
+          ["Cecil", "Soto"],
+          ["Tommie", "Bartlett"],
+          ["Garland", "Campbell"],
+          ["Nichole", "Buckley"],
+          ["Minerva", "Day"],
+          ["Herman", "Ware"],
+          ["Kris", "Kemp"],
+          ["Claud", "Abbott"],
+          ["Reuben", "Vance"],
+        ];
+      });
+    });
+  });
+}</pre>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title" id="pattern-5">
+        <a class="has-text-black" href="pattern-5">Pattern #5</a>
+      </h1>
+      <p class="subtitle">
+        スプレッドシートの最終行に新しいデータを追記する
+      </p>
+      <pre>
+function myFunction() {
+  openSpreadsheetById("xxxxxxxx", (ss) => {
+    openSheetByName(ss, "sheet 1", (sheet) => {
+      changeCsv(sheet, sheet.getLastRow(), 1, 1, 2, (csv) => {
+        pushRow(csv, () => {
+          return ["Harriett", "Brock"];
+        });
+
+        return csv;
+      });
+    });
+  });
+}</pre>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h1 class="title" id="pattern-5">
+        <a class="has-text-black" href="pattern-5">Pattern #5</a>
+      </h1>
+      <p class="subtitle">
+        スプレッドシートの最終行に新しいデータを追記する
+      </p>
+      <pre>
+function myFunction() {
+  openSpreadsheetById("xxxxxxxx", (ss) => {
+    openSheetByName(ss, "sheet 1", (sheet) => {
+      changeCsv(sheet, sheet.getLastRow(), 1, 1, 2, (csv) => {
+        pushRow(csv, () => {
+          return ["Harriett", "Brock"];
+        });
+
+        return csv;
+      });
+    });
+  });
+}</pre>
+    </div>
+  </section>
+
+</body>
+</html>
