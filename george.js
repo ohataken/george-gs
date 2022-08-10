@@ -16,6 +16,12 @@ function openSpreadsheetByUrl(url, callback) {
   return ss;
 }
 
+function openActiveSheet(callback) {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  callback(sheet);
+  return sheet;
+}
+
 function openSheetByName(ss, name, callback) {
   const sheet = ss.getSheetByName(name);
   callback(sheet);
