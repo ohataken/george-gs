@@ -32,6 +32,12 @@ function openSheetByName(ss, name, callback) {
   return sheet;
 }
 
+function eachRowIndex(startRow, startColumn, rows, columns, callback) {
+  for (let i = startRow; i <= startRow + rows; ++i) {
+    callback(i, startColumn, 1, columns);
+  }
+}
+
 function pushRow(csv, callback) {
   const row = [];
   csv.push(callback(row));
