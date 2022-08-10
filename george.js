@@ -18,13 +18,17 @@ function openSpreadsheetByUrl(url, callback) {
 
 function openActiveSheet(callback) {
   const sheet = SpreadsheetApp.getActiveSheet();
-  callback(sheet);
+  const lastRow = sheet.getLastRow();
+  const lastColumn = sheet.getLastColumn();
+  callback(sheet, lastRow, lastColumn);
   return sheet;
 }
 
 function openSheetByName(ss, name, callback) {
   const sheet = ss.getSheetByName(name);
-  callback(sheet);
+  const lastRow = sheet.getLastRow();
+  const lastColumn = sheet.getLastColumn();
+  callback(sheet, lastRow, lastColumn);
   return sheet;
 }
 
