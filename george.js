@@ -1,3 +1,9 @@
+function openActiveSpreadsheet(callback) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  callback(ss);
+  return ss;
+}
+
 function openSpreadsheetById(id, callback) {
   const ss = SpreadsheetApp.openById(id);
   callback(ss);
