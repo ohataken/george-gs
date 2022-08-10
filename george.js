@@ -38,6 +38,13 @@ function eachRowIndex(startRow, startColumn, rows, columns, callback) {
   }
 }
 
+function openRangeWithValues(sheet, startRow, startColumn, rows, columns, callback) {
+  const range = sheet.getRange(startRow, startColumn, rows, columns);
+  const values = range.getValues();
+  callback(range, values);
+  return range;
+}
+
 function pushRow(csv, callback) {
   const row = [];
   csv.push(callback(row));
