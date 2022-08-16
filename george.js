@@ -55,6 +55,18 @@ function a1toi(a1, i = 0) {
   }
 }
 
+function itoa1(i, a1 = "") {
+  const q = Math.floor((i - 1) / 26);
+  const r = (i - 1) % 26;
+  const char = String.fromCharCode("A".charCodeAt(0) + r);
+
+  if (q === 0) {
+    return char + a1;
+  } else {
+    return itoa1(q, char + a1);
+  }
+}
+
 function pushRow(csv, callback) {
   const row = [];
   csv.push(callback(row));
