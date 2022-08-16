@@ -45,6 +45,16 @@ function openRangeWithValues(sheet, startRow, startColumn, rows, columns, callba
   return range;
 }
 
+function a1toi(a1, i = 0) {
+  if (0 < a1.length) {
+    const charCode = a1.charCodeAt(0);
+    const num = charCode - "A".charCodeAt(0) + 1;
+    return a1toi(a1.slice(1), i * 26 + num);
+  } else {
+    return i;
+  }
+}
+
 function pushRow(csv, callback) {
   const row = [];
   csv.push(callback(row));
