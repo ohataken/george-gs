@@ -67,6 +67,12 @@ function itoa1(i, a1 = "") {
   }
 }
 
+function createValues(callback) {
+  const values = [];
+  callback(values);
+  return values;
+}
+
 function pushRow(csv, callback) {
   const row = [];
   csv.push(callback(row));
