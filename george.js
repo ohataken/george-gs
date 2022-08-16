@@ -115,3 +115,9 @@ function openDocumentById(id, callback) {
   callback(document);
   return document;
 }
+
+function openDocumentByUrl(url, callback) {
+  const document = DocumentApp.openByUrl(url);
+  callback(document);
+  return document;
+}
