@@ -5,6 +5,13 @@ function eachFile(iterator, callback) {
   }
 }
 
+function eachFolder(iterator, callback) {
+  while (iterator.hasNext()) {
+    const file = iterator.next();
+    callback(file);
+  }
+}
+
 function openActiveSpreadsheet(callback) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   callback(ss);
