@@ -127,3 +127,10 @@ function openDocumentBody(document, callback) {
   callback(body);
   return body;
 }
+
+function updateDocumentBody(document, callback) {
+  const body = document.getBody();
+  callback(body);
+  document.saveAndClose();
+  return body;
+}
