@@ -109,3 +109,9 @@ function changeCsv(sheet) {
   sheet.getRange(args[1], args[2], csv.length || 0, csv[0].length || 0).setValues(csv);
   return csv;
 }
+
+function openDocumentById(id, callback) {
+  const document = DocumentApp.openById(id);
+  callback(document);
+  return document;
+}
