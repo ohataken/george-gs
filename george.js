@@ -121,3 +121,9 @@ function openDocumentByUrl(url, callback) {
   callback(document);
   return document;
 }
+
+function openDocumentBody(document, callback) {
+  const body = document.getBody();
+  callback(body);
+  return body;
+}
